@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FluxVid - Pricing Plans</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8B5CF6;
+            --primary-dark: #7C3AED;
+            --primary-light: #A78BFA;
+            --secondary: #10B981;
+            --secondary-dark: #059669;
+            --accent: #F59E0B;
+            --dark: #0F172A;
+            --dark-light: #1F2937;
+            --light: #F8FAFC;
+            --gray: #94A3B8;
+            --gray-light: #E2E8F0;
+            --gradient: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 50%, #6D28D9 100%);
+            --gradient-light: linear-gradient(135deg, #A78BFA 0%, #8B5CF6 100%);
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
+            --radius: 16px;
+            --radius-lg: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: var(--light);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 28px;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-decoration: none;
+        }
+
+        .logo i {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-light);
+        }
+
+        .nav-links a.active {
+            color: var(--primary-light);
+            position: relative;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .credits-badge {
+            background: var(--gradient);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-light);
+            border: 2px solid var(--primary);
+        }
+
+        /* Pricing Hero */
+        .pricing-hero {
+            padding: 180px 0 80px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .pricing-hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .pricing-hero p {
+            font-size: 20px;
+            color: var(--gray);
+            margin-bottom: 40px;
+        }
+
+        /* Pricing Plans */
+        .pricing-plans {
+            padding: 60px 0;
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .pricing-header h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .pricing-header p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .plans-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .plan-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-lg);
+            padding: 50px 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .plan-card.popular {
+            background: rgba(139, 92, 246, 0.1);
+            border: 2px solid var(--primary);
+            transform: scale(1.05);
+        }
+
+        .plan-card.popular:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--gradient);
+            color: white;
+            padding: 8px 24px;
+            font-size: 14px;
+            font-weight: 700;
+            border-bottom-left-radius: 20px;
+        }
+
+        .plan-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .plan-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gray);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .plan-card.popular .plan-name {
+            color: var(--primary-light);
+        }
+
+        .plan-price {
+            font-size: 48px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .plan-price span {
+            font-size: 24px;
+            color: var(--gray);
+        }
+
+        .plan-duration {
+            color: var(--gray);
+            font-size: 16px;
+        }
+
+        .plan-features {
+            margin-bottom: 40px;
+        }
+
+        .plan-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+
+        .plan-features li i {
+            color: var(--primary);
+            font-size: 20px;
+        }
+
+        .plan-features li.disabled {
+            color: var(--gray);
+        }
+
+        .plan-features li.disabled i {
+            color: var(--gray);
+        }
+
+        .plan-button {
+            width: 100%;
+            padding: 18px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        /* Features Comparison */
+        .features-comparison {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: var(--radius-lg);
+            padding: 60px;
+            margin: 80px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .features-comparison h3 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th {
+            padding: 25px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--gray);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .comparison-table td {
+            padding: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--light);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .feature-name {
+            font-weight: 600;
+        }
+
+        .feature-value {
+            text-align: center;
+        }
+
+        .feature-value i {
+            font-size: 20px;
+            color: var(--primary);
+        }
+
+        .feature-value .fa-check {
+            color: var(--secondary);
+        }
+
+        .feature-value .fa-times {
+            color: var(--gray);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-section h3 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .faq-item {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: var(--radius);
+            padding: 30px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 18px;
+            color: white;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--gray);
+            margin-top: 0;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            margin-top: 20px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--gradient);
+            border-radius: var(--radius-lg);
+            padding: 80px;
+            text-align: center;
+            margin: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0,0 L1000,0 L1000,100 L0,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.1;
+        }
+
+        .cta-section h3 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button {
+            background: white;
+            color: var(--primary-dark);
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: var(--radius);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 60px 0 40px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h4 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .copyright {
+            color: var(--gray);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-social a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .plans-container {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .plan-card.popular {
+                transform: none;
+            }
+
+            .plan-card.popular:hover {
+                transform: translateY(-10px);
+            }
+
+            .pricing-hero h1 {
+                font-size: 42px;
+            }
+
+            .comparison-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-links {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .pricing-hero {
+                padding: 140px 0 60px;
+            }
+
+            .pricing-hero h1 {
+                font-size: 36px;
+            }
+
+            .features-comparison,
+            .cta-section {
+                padding: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-play-circle"></i>
+                    <span>FluxVid</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="generator.html">Generator</a>
+                    <a href="pricing.html" class="active">Pricing</a>
+                    <a href="#">Features</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="user-info">
+                    <div class="credits-badge">
+                        <i class="fas fa-coins"></i>
+                        <span id="credits-count">100</span> Credits
+                    </div>
+                    <div style="width: 45px; height: 45px; background: var(--gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; cursor: pointer;">
+                        GU
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Pricing Hero -->
+    <section class="pricing-hero">
+        <div class="container">
+            <h1>Choose Your Perfect Plan</h1>
+            <p>Unlock the full potential of AI video generation with our flexible pricing plans. Start with our Basic plan or go all-in with Max for unlimited creativity.</p>
+            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 40px;">
+                <button class="btn btn-primary">Start Free Trial</button>
+                <button class="btn btn-outline">View Features</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section class="pricing-plans">
+        <div class="container">
+            <div class="pricing-header">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>All plans include our advanced AI video generation technology. Choose the plan that fits your needs.</p>
+            </div>
+
+            <div class="plans-container">
+                <!-- Basic Plan -->
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <div class="plan-name">Basic</div>
+                        <div class="plan-price">₹199<span>/month</span></div>
+                        <div class="plan-duration">Billed monthly</div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> <strong>300 Credits</strong> per month</li>
+                        <li><i class="fas fa-check"></i> <strong>1080p HD Quality</strong> videos</li>
+                        <li><i class="fas fa-check"></i> Up to <strong>30 seconds</strong> per video</li>
+                        <li><i class="fas fa-check"></i> <strong>10 AI Models</strong> available</li>
+                        <li><i class="fas fa-check"></i> <strong>Standard Support</strong></li>
+                        <li class="disabled"><i class="fas fa-times"></i> No 4K Quality</li>
+                        <li class="disabled"><i class="fas fa-times"></i> No Unlimited Videos</li>
+                    </ul>
+                    <button class="btn btn-primary plan-button" onclick="selectPlan('basic')">
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- Premium Plan (Popular) -->
+                <div class="plan-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="plan-header">
+                        <div class="plan-name">Premium</div>
+                        <div class="plan-price">₹399<span>/month</span></div>
+                        <div class="plan-duration">Billed monthly</div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> <strong>600 Credits</strong> per month</li>
+                        <li><i class="fas fa-check"></i> <strong>4K Ultra HD Quality</strong></li>
+                        <li><i class="fas fa-check"></i> Up to <strong>60 seconds</strong> per video</li>
+                        <li><i class="fas fa-check"></i> <strong>All AI Models</strong> included</li>
+                        <li><i class="fas fa-check"></i> <strong>Priority Support</strong></li>
+                        <li><i class="fas fa-check"></i> <strong>Commercial License</strong></li>
+                        <li class="disabled"><i class="fas fa-times"></i> No Unlimited Videos</li>
+                    </ul>
+                    <button class="btn btn-primary plan-button" onclick="selectPlan('premium')">
+                        Get Premium
+                    </button>
+                </div>
+
+                <!-- Max Plan -->
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <div class="plan-name">Max</div>
+                        <div class="plan-price">₹499<span>/month</span></div>
+                        <div class="plan-duration">Billed monthly</div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> <strong>Unlimited Videos</strong></li>
+                        <li><i class="fas fa-check"></i> <strong>4K Ultra HD Quality</strong></li>
+                        <li><i class="fas fa-check"></i> Up to <strong>120 seconds</strong> per video</li>
+                        <li><i class="fas fa-check"></i> <strong>All AI Models + Beta</strong></li>
+                        <li><i class="fas fa-check"></i> <strong>24/7 Priority Support</strong></li>
+                        <li><i class="fas fa-check"></i> <strong>Full Commercial License</strong></li>
+                        <li><i class="fas fa-check"></i> <strong>Custom AI Training</strong></li>
+                    </ul>
+                    <button class="btn btn-primary plan-button" onclick="selectPlan('max')">
+                        Go Max
+                    </button>
+                </div>
+            </div>
+
+            <!-- Features Comparison -->
+            <div class="features-comparison">
+                <h3>Compare Plans</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th class="feature-name">Features</th>
+                            <th class="feature-value">Basic</th>
+                            <th class="feature-value">Premium</th>
+                            <th class="feature-value">Max</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="feature-name">Monthly Price</td>
+                            <td class="feature-value">₹199</td>
+                            <td class="feature-value">₹399</td>
+                            <td class="feature-value">₹499</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Credits</td>
+                            <td class="feature-value">300</td>
+                            <td class="feature-value">600</td>
+                            <td class="feature-value">Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Video Quality</td>
+                            <td class="feature-value">1080p HD</td>
+                            <td class="feature-value">4K Ultra HD</td>
+                            <td class="feature-value">4K Ultra HD</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Video Length</td>
+                            <td class="feature-value">30 seconds</td>
+                            <td class="feature-value">60 seconds</td>
+                            <td class="feature-value">120 seconds</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">AI Models</td>
+                            <td class="feature-value">10 Models</td>
+                            <td class="feature-value">All Models</td>
+                            <td class="feature-value">All + Beta</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Commercial Use</td>
+                            <td class="feature-value"><i class="fas fa-times"></i></td>
+                            <td class="feature-value"><i class="fas fa-check"></i></td>
+                            <td class="feature-value"><i class="fas fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Priority Support</td>
+                            <td class="feature-value"><i class="fas fa-times"></i></td>
+                            <td class="feature-value"><i class="fas fa-check"></i></td>
+                            <td class="feature-value"><i class="fas fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Custom Training</td>
+                            <td class="feature-value"><i class="fas fa-times"></i></td>
+                            <td class="feature-value"><i class="fas fa-times"></i></td>
+                            <td class="feature-value"><i class="fas fa-check"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <h3>Frequently Asked Questions</h3>
+                
+                <div class="faq-item" onclick="toggleFAQ(1)">
+                    <div class="faq-question">
+                        What happens if I use all my credits?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        You can purchase additional credits or upgrade your plan. Basic plan users can buy extra credits at ₹0.50 per credit.
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFAQ(2)">
+                    <div class="faq-question">
+                        Can I switch plans anytime?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately with prorated billing.
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFAQ(3)">
+                    <div class="faq-question">
+                        Is there a free trial?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes! All new users get 100 free credits to try our service before committing to a paid plan.
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFAQ(4)">
+                    <div class="faq-question">
+                        What payment methods do you accept?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        We accept all major credit cards, PayPal, UPI, and net banking. All payments are secure and encrypted.
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <h3>Ready to Create Amazing Videos?</h3>
+                <p>Join thousands of creators using FluxVid to transform their ideas into stunning videos. Start your free trial today!</p>
+                <button class="cta-button" onclick="window.location.href='index.html'">
+                    Start Free Trial - 100 Credits Free
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo" style="font-size: 24px; margin-bottom: 20px;">
+                        <i class="fas fa-play-circle"></i>
+                        <span>FluxVid</span>
+                    </div>
+                    <p style="color: var(--gray); margin-bottom: 20px;">Transform text into stunning videos with AI. The future of content creation is here.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="generator.html">Video Generator</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">API</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2023 FluxVid. All rights reserved.
+                </div>
+                <div>
+                    <a href="#" style="color: var(--gray); text-decoration: none; margin-right: 20px;">Privacy Policy</a>
+                    <a href="#" style="color: var(--gray); text-decoration: none;">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Plan Selection
+        function selectPlan(plan) {
+            const plans = {
+                basic: {
+                    name: "Basic",
+                    price: "₹199",
+                    credits: 300,
+                    quality: "1080p HD"
+                },
+                premium: {
+                    name: "Premium",
+                    price: "₹399",
+                    credits: 600,
+                    quality: "4K Ultra HD"
+                },
+                max: {
+                    name: "Max",
+                    price: "₹499",
+                    credits: "Unlimited",
+                    quality: "4K Ultra HD"
+                }
+            };
+
+            const selectedPlan = plans[plan];
+            
+            // Show confirmation modal or redirect to checkout
+            if (confirm(`You've selected the ${selectedPlan.name} Plan:\n\n` +
+                       `• Price: ${selectedPlan.price}/month\n` +
+                       `• Credits: ${selectedPlan.credits}\n` +
+                       `• Quality: ${selectedPlan.quality}\n\n` +
+                       `Proceed to checkout?`)) {
+                // In a real application, redirect to payment page
+                // For demo, just show success message
+                alert(`🎉 Great choice! You've selected the ${selectedPlan.name} Plan.\n\n` +
+                      `You will be redirected to the secure payment page.`);
+                
+                // Simulate redirection (in real app, use window.location.href)
+                // window.location.href = `checkout.html?plan=${plan}`;
+            }
+        }
+
+        // FAQ Toggle
+        function toggleFAQ(index) {
+            const faqItem = document.querySelectorAll('.faq-item')[index - 1];
+            faqItem.classList.toggle('active');
+            
+            // Update icon
+            const icon = faqItem.querySelector('.faq-question i');
+            if (faqItem.classList.contains('active')) {
+                icon.className = 'fas fa-chevron-up';
+            } else {
+                icon.className = 'fas fa-chevron-down';
+            }
+            
+            // Close other FAQ items
+            document.querySelectorAll('.faq-item').forEach((item, i) => {
+                if (i !== index - 1) {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-question i').className = 'fas fa-chevron-down';
+                }
+            });
+        }
+
+        // Initialize FAQ
+        document.addEventListener('DOMContentLoaded', function() {
+            // Open first FAQ by default
+            document.querySelectorAll('.faq-item')[0].classList.add('active');
+            document.querySelectorAll('.faq-item')[0].querySelector('.faq-question i').className = 'fas fa-chevron-up';
+        });
+
+        // Update credits from localStorage (if available)
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                const userData = localStorage.getItem('fluxvid_user');
+                if (userData) {
+                    const user = JSON.parse(userData);
+                    if (user.credits) {
+                        document.getElementById('credits-count').textContent = user.credits;
+                    }
+                    if (user.avatar) {
+                        document.querySelector('.user-info div:last-child').textContent = user.avatar;
+                    }
+                }
+            } catch (e) {
+                console.log('Error loading user data');
+            }
+        });
+    </script>
+</body>
+</html>
